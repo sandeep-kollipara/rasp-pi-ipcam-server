@@ -1,2 +1,2 @@
 numpy
-pandas
+picamera2=0.3.18
