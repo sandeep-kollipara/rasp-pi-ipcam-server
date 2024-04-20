@@ -1,0 +1,6 @@
+numpy
+struct
+pickle
+imutils
+socket
+cv2
