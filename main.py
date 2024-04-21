@@ -35,6 +35,7 @@ if __name__ == '__main__':
     server_socket.listen(5)
     print('Socket now listening')
 
+    '''
     while True:
         client_socket,addr = server_socket.accept()
         print('Connection from:',addr)
@@ -50,6 +51,15 @@ if __name__ == '__main__':
                 key = cv2.waitKey(10) 
                 if key ==13:
                     client_socket.close()
+    '''
+
+    s = server_socket
+    c, addr = s.accept()       
+    print('Got connection from', addr)    
+    while True:
+        c.send(raw_input("Server please type: "))
+    print("From Client: ", c.recv(1024))
+    c.close()
 
     input("Press ENTER to exit.")
     print("Bye!")
