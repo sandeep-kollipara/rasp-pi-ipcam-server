@@ -57,7 +57,7 @@ if __name__ == '__main__':
     c, addr = s.accept()       
     print('Got connection from', addr)    
     while True:
-        c.send(raw_input("Server please type: "))
+        c.send(input("Server please type: ")) # Undefined function removed: raw_input()
     print("From Client: ", c.recv(1024))
     c.close()
 
