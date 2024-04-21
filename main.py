@@ -4,7 +4,7 @@ import sys
 from picamera2 import Picamera2
 import struct
 import pickle
-import imutils
+#import imutils
 import socket
 import cv2
 
@@ -19,7 +19,8 @@ if __name__ == '__main__':
     # create an INET, STREAMing socket
     server_socket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
     host_name  = socket.gethostname()
-    host_ip = socket.gethostbyname(host_name)
+    #host_ip = socket.gethostbyname(host_name)
+    host_ip = '0.0.0.0'
     print('HOST IP:',host_ip)
     port = 10050
     socket_address = (host_ip,port)
@@ -38,7 +39,8 @@ if __name__ == '__main__':
         client_socket,addr = server_socket.accept()
         print('Connection from:',addr)
         if client_socket:
-            vid = cv2.VideoCapture(0)
+            #vid = cv2.VideoCapture(0)
+            vid = cv2.VideoCapture(picam2)
             while(vid.isOpened()):
                 img,frame = vid.read()
                 a = pickle.dumps(frame)
